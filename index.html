@@ -3,89 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ספריית התכנים המלאה</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>ספריית התכנים | עיצוב פרימיום</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --bg: #f8fafc; --card-bg: #ffffff; }
-        body { font-family: 'Assistant', sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: #1e293b; }
-        .top-nav { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .top-nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: bold; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 50px; }
-        .section-title { margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; font-size: 1.5rem; color: #0f172a; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
-        .btn { flex: 1; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .btn-video { background: #fee2e2; color: #dc2626; }
-        .btn-audio { background: #dbeafe; color: #2563eb; }
-        .form-box { background: #ffffff; border: 2px solid var(--primary); border-radius: 20px; padding: 35px; text-align: center; margin-top: 60px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1); }
-        .input-mail { padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; width: 280px; margin: 10px 0; font-family: inherit; }
-        .btn-submit { background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            /* רקע מונפש ומודרני */
+            background: linear-gradient(-45deg, #e0e7ff, #cffafe, #f3e8ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* תפריט ניווט צף (Floating Navbar) */
+        .top-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--glass-border);
+            z-index: 1000;
+            display: flex;
+            gap: 30px;
+            transition: all 0.3s;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .top-nav a:hover { color: var(--primary); }
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        .top-nav a:hover::after { width: 100%; }
+
+        .container {
+            max-width: 1100px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 60px 0 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 50%;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* עיצוב כרטיסיות Glassmorphism */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0; /* מוסתר בהתחלה עבור אנימציית הגלילה */
+            transform: translateY(40px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .btn-group { display: flex; gap: 15px; }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-video {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid transparent;
+        }
+        .btn-video:hover {
+            background: #ef4444;
+            color: white;
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-audio {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            border: 1px solid transparent;
+        }
+        .btn-audio:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        /* תיבת הרשמה מטורפת */
+        .form-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+            backdrop-filter: blur(20px);
+            border: 1px solid white;
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 80px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-box::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            filter: blur(60px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .input-mail {
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            width: 280px;
+            font-family: inherit;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .input-mail:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-submit {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(79, 70, 229, 0.4);
+        }
+
     </style>
 </head>
 <body>
 
 <nav class="top-nav">
-    <a href="index.html">דף הבית</a>
-    <a href="about.html">מי אנחנו</a>
+    <a href="index.html">ספרייה</a>
+    <a href="about.html">אודות</a>
 </nav>
 
 <div class="container">
-    <header>
-        <h1>ברוכים הבאים לספריית התכנים</h1>
-        <p>כל השיעורים והסדרות במקום אחד</p>
+    <header class="animate-on-scroll">
+        <h1>הספרייה הדיגיטלית</h1>
+        <p style="font-size: 1.5rem; color: #64748b;">כל התכנים. כל השיעורים. במקום אחד.</p>
     </header>
 
-    <div class="section-title">📂 ללמוד לריב (5 חלקים)</div>
+    <div class="section-title animate-on-scroll">📂 סדרת "ללמוד לריב"</div>
     <div class="grid">
-        <script>
-            for(let i=1; i<=5; i++) {
-                document.write(`
-                    <div class="card">
-                        <h3>ללמוד לריב - חלק ${i}</h3>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-video">🎬 וידאו</a>
-                            <a href="#" class="btn btn-audio">🎧 שמע</a>
-                        </div>
-                    </div>
-                `);
-            }
-        </script>
+        <div class="card animate-on-scroll">
+            <h3>ללמוד לריב - חלק 1</h3>
+            <div class="btn-group">
+                <a href="#" class="btn btn-video">▶ וידאו</a>
+                <a href="#" class="btn btn-audio">🎵 שמע</a>
+            </div>
+        </div>
+        <div class="card animate-on-scroll">
+            <h3>ללמוד לריב - חלק 2</h3>
+            <div class="btn-group">
+                <a href="#" class="btn btn-video">▶ וידאו</a>
+                <a href="#" class="btn btn-audio">🎵 שמע</a>
+            </div>
+        </div>
+        <div class="card animate-on-scroll">
+            <h3>ללמוד לריב - חלק 3</h3>
+            <div class="btn-group">
+                <a href="#" class="btn btn-video">▶ וידאו</a>
+                <a href="#" class="btn btn-audio">🎵 שמע</a>
+            </div>
+        </div>
     </div>
 
-    <div class="section-title">🎥 מפגשים וסדרות נוספות</div>
+    <div class="section-title animate-on-scroll" style="margin-top: 80px;">🎥 מפגשים וסדרות נוספות</div>
     <div class="grid">
-        <div class="card">
-            <h3>מפגש יום ד' יתרו</h3>
-            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בהקלטה</a></div>
+        <div class="card animate-on-scroll">
+            <h3>מפגש יום ד' - יתרו</h3>
+            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">▶ צפייה בהקלטה</a></div>
         </div>
-        <div class="card">
+        <div class="card animate-on-scroll">
             <h3>חסרות מחמאות - חלק 1</h3>
-            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בפרק</a></div>
-        </div>
-        <div class="card">
-            <h3>חסרות מחמאות - חלק 2</h3>
-            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בפרק</a></div>
+            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">▶ צפייה בפרק</a></div>
         </div>
     </div>
 
-    <div class="form-box">
-    <h2>הצטרפו לתפוצה שלנו</h2>
-    <p>הכניסו פרטים ותקבלו את כל התכנים החדשים למייל</p>
-
-        <form action="https://formspree.io/f/xjgelvwy" method="POST">
-        <input type="text" name="name" class="input-mail" placeholder="שם מלא" required>
-        <br>
-        <input type="email" name="email" class="input-mail" placeholder="כתובת מייל" required>
-        <br>
-        <input type="hidden" name="_next" value="https://github.com/xsx-x/Couple-or-individual/blob/5138b0d67569041df5a190b6ac1e2daef0f9e74e/thanks.html">
+    <div class="form-box animate-on-scroll">
+        <h2 style="font-size: 2.5rem; margin-top: 0; color: var(--dark);">הישארו מעודכנים</h2>
+        <p style="font-size: 1.2rem; color: #475569;">הצטרפו עכשיו וקבלו גישה ישירה לכל התכנים החדשים.</p>
         
-        <button type="submit" class="btn-submit">אני רוצה להצטרף!</button>
-    </form>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="input-group">
+                <input type="text" name="name" class="input-mail" placeholder="איך קוראים לך?" required>
+                <input type="email" name="email" class="input-mail" placeholder="מה המייל שלך?" required>
+                <input type="hidden" name="_next" value="https://YOUR_USER.github.io/YOUR_REPO/thanks.html">
+                <button type="submit" class="btn-submit">שלחו לי הכל</button>
+            </div>
+        </form>
+    </div>
 </div>
-</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // יצירת השהייה קטנה בין כל כרטיסיה כדי שיופיעו אחת אחרי השנייה
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100); 
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // מתחיל את האנימציה כש-10% מהאלמנט נכנס למסך
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
 
 </body>
 </html>
