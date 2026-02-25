@@ -72,18 +72,19 @@
     </div>
 
     <div class="form-box">
-        <h2>הצטרפו לתפוצת המייל שלנו</h2>
-        <p>נרשמים ומקבלים את כל העדכונים והתכנים ישירות אליכם</p>
-        <form action="https://ui-api.pulseem.com/api/v1/ClientsApi/AddClients" method="POST">
-            <input type="hidden" name="APIKey" value="!85OE(Sif(0sYaRu7z[ga68[rDOCrBG{QQPqZ6KW$}qahDSEN">
-            <input type="hidden" name="groupIds" value="950290">
-            <input type="hidden" name="redirectUrl" value="https://github.com/xsx-x/Couple-or-individual/blob/c4a8ee41c20728832ca84019662c0f20ca18c8e4/thanks.html">
-            
-            <input type="email" name="clientsData[0].email" class="input-mail" placeholder="הכניסו את כתובת המייל שלכם..." required>
-            <br>
-            <button type="submit" class="btn-submit">אני רוצה להצטרף!</button>
-        </form>
-    </div>
+    <h2>הצטרפו לתפוצה שלנו</h2>
+    <p>הכניסו פרטים ותקבלו את כל התכנים החדשים למייל</p>
+
+        <form action="https://formspree.io/f/xjgelvwy" method="POST">
+        <input type="text" name="name" class="input-mail" placeholder="שם מלא" required>
+        <br>
+        <input type="email" name="email" class="input-mail" placeholder="כתובת מייל" required>
+        <br>
+        <input type="hidden" name="_next" value="https://YOUR_USER.github.io/YOUR_REPO/thanks.html">
+        
+        <button type="submit" class="btn-submit">אני רוצה להצטרף!</button>
+    </form>
+</div>
 </div>
 
 </body>
