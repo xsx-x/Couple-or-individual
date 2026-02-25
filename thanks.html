@@ -2,22 +2,57 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>תודה על הצטרפותכם!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@700&display=swap" rel="stylesheet">
+    <title>תודה רבה!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Assistant', sans-serif; background: #f0f9ff; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 50px; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; border-top: 8px solid #10b981; }
-        h1 { color: #059669; font-size: 2.8rem; margin-bottom: 15px; }
-        p { font-size: 1.4rem; color: #334155; margin-bottom: 25px; }
-        .btn { background: #2563eb; color: white; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; }
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            background: linear-gradient(-45deg, #e0e7ff, #cffafe, #f3e8ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .thanks-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        h1 {
+            background: linear-gradient(to right, #4f46e5, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+        }
     </style>
 </head>
 <body>
-<div class="card">
-    <h1>תודה רבה!</h1>
-    <p>המייל שלכם נקלט בהצלחה במערכת.</p>
-    <p>בקרוב מאוד נשלח אליכם תוכן מרתק ובעל ערך. שווה לחכות!</p>
-    <a href="index.html" class="btn">חזרה לספרייה</a>
-</div>
+    <div class="thanks-card">
+        <h1>תודה רבה!</h1>
+        <p style="font-size: 1.2rem; color: #475569;">הפרטים שלך נקלטו. בקרוב תקבל מאיתנו תוכן ששווה לחכות לו.</p>
+        <a href="index.html" class="btn-home">חזרה לספרייה</a>
+    </div>
 </body>
 </html>
