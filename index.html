@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ספריית התכנים המלאה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2563eb; --bg: #f8fafc; --card-bg: #ffffff; }
+        body { font-family: 'Assistant', sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: #1e293b; }
+        .top-nav { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .top-nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: bold; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 50px; }
+        .section-title { margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; font-size: 1.5rem; color: #0f172a; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .btn { flex: 1; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .btn-video { background: #fee2e2; color: #dc2626; }
+        .btn-audio { background: #dbeafe; color: #2563eb; }
+        .form-box { background: #ffffff; border: 2px solid var(--primary); border-radius: 20px; padding: 35px; text-align: center; margin-top: 60px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1); }
+        .input-mail { padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; width: 280px; margin: 10px 0; font-family: inherit; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">דף הבית</a>
+    <a href="about.html">מי אנחנו</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>ברוכים הבאים לספריית התכנים</h1>
+        <p>כל השיעורים והסדרות במקום אחד</p>
+    </header>
+
+    <div class="section-title">📂 ללמוד לריב (5 חלקים)</div>
+    <div class="grid">
+        <script>
+            for(let i=1; i<=5; i++) {
+                document.write(`
+                    <div class="card">
+                        <h3>ללמוד לריב - חלק ${i}</h3>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-video">🎬 וידאו</a>
+                            <a href="#" class="btn btn-audio">🎧 שמע</a>
+                        </div>
+                    </div>
+                `);
+            }
+        </script>
+    </div>
+
+    <div class="section-title">🎥 מפגשים וסדרות נוספות</div>
+    <div class="grid">
+        <div class="card">
+            <h3>מפגש יום ד' יתרו</h3>
+            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בהקלטה</a></div>
+        </div>
+        <div class="card">
+            <h3>חסרות מחמאות - חלק 1</h3>
+            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בפרק</a></div>
+        </div>
+        <div class="card">
+            <h3>חסרות מחמאות - חלק 2</h3>
+            <div class="btn-group"><a href="#" class="btn btn-video" style="flex:2">צפייה בפרק</a></div>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h2>הצטרפו לתפוצת המייל שלנו</h2>
+        <p>נרשמים ומקבלים את כל העדכונים והתכנים ישירות אליכם</p>
+        <form action="https://ui-api.pulseem.com/api/v1/ClientsApi/AddClients" method="POST">
+            <input type="hidden" name="APIKey" value="!85OE(Sif(0sYaRu7z[ga68[rDOCrBG{QQPqZ6KW$}qahDSEN">
+            <input type="hidden" name="groupIds" value="950290">
+            <input type="hidden" name="redirectUrl" value="https://YOUR_USER.github.io/YOUR_REPO/thanks.html">
+            
+            <input type="email" name="clientsData[0].email" class="input-mail" placeholder="הכניסו את כתובת המייל שלכם..." required>
+            <br>
+            <button type="submit" class="btn-submit">אני רוצה להצטרף!</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
